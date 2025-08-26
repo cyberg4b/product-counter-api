@@ -35,6 +35,8 @@ async def contar_produtos(
     with open(arquivo_temp, "wb") as f:
         f.write(contents)
 
+    print("PROCESSANDO IMAGEM...")
+
     img = cv2.imread(arquivo_temp)
 
     # Fazer inferência
