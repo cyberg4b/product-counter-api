@@ -15,7 +15,7 @@ API_KEY_NAME = "access_token"
 app = FastAPI()
 api_key_header = APIKeyHeader(name=API_KEY_NAME, auto_error=True)
 
-model = YOLO("yolo11m.pt")
+model = YOLO("yolo11s.pt")
 
 def get_api_key(api_key: str = Security(api_key_header)):
     if api_key != API_KEY:
@@ -30,7 +30,7 @@ async def contar_produtos(
 ):
     # Salvar arquivo temporário
     contents = await file.read()
-    arquivo_temp = f"temp_{file.filename}"
+    arquivo_temp = f"/tmp/temp_{file.filename}"
 
     with open(arquivo_temp, "wb") as f:
         f.write(contents)
